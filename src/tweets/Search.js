@@ -12,8 +12,6 @@ class Search extends Component {
       tweet.text.includes(this.state.text),
     );
     this.props.searchTweets(this.state.text, searchTweet);
-    console.log(searchTweet);
-    // this.setState({ text: '' });
   };
 
   onChange = e => {

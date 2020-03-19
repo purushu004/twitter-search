@@ -8,7 +8,7 @@ const Tweets = ({ tweets, loading }) => {
   } else {
     return (
       <div style={tweetStyle}>
-        {tweets.map(tweet => (
+        { tweets.length === 0 ? <p>No results found</p>: tweets.map(tweet => (
           <TweetItem
             key={tweet.id}
             tweet={tweet}
