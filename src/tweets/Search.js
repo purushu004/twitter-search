@@ -8,8 +8,12 @@ class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.searchTweets(this.state.text);
-    this.setState({ text: '' });
+    const searchTweet = this.props.tweets.filter(tweet =>
+      tweet.text.includes(this.state.text),
+    );
+    this.props.searchTweets(this.state.text, searchTweet);
+    console.log(searchTweet);
+    // this.setState({ text: '' });
   };
 
   onChange = e => {
@@ -18,14 +22,15 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className='search-component'>
         <form onSubmit={this.onSubmit} className='form'>
           <input
             type='text'
             name='text'
-            placeholder='Search Tweets...'
+            placeholder='Search Twitter'
             value={this.state.text}
             onChange={this.onChange}
+            className='search-bar'
           />
           <input
             type='submit'

@@ -1,0 +1,49 @@
+.twitter-nav {
+  background-color: #00aaf8;
+  text-align: center;
+  display: block;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.search-bar {
+  border-radius: 20px;
+  background-color: #fafafa;
+}
+
+.search-component {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 1rem;
+}
+
+input[type='text'] {
+  padding-left: 15px;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+}
+
+.form {
+  display: flex;
+}
+
+.btn {
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 20px;
+  background-color: #00aaf8;
+}
+
+.avatar {
+  padding-right: 10px;
+}
+
+.tweet-info h4 {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.tweet-info span {
+  font-size: 12px;
+}

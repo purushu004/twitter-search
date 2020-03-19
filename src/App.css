@@ -42,10 +42,11 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 600px;
   margin: auto;
   overflow: hidden;
-  padding: 0 2rem;
+  border: 1px solid #e5e5e5;
+  border-top: none;
 }
 
 /* Text Styles*/
@@ -111,9 +112,13 @@ img {
 
 /* Cards */
 .card {
+  display: flex;
   padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
+  border-top: #e5e5e5 1px solid;
+}
+
+.card:first-child {
+  border-top: none;
 }
 
 /* List */
@@ -355,7 +360,6 @@ table th {
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  margin-bottom: 1rem;
 }
 
 .navbar ul {

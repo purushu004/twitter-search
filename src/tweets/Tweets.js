@@ -9,7 +9,13 @@ const Tweets = ({ tweets, loading }) => {
     return (
       <div style={tweetStyle}>
         {tweets.map(tweet => (
-          <TweetItem key={tweet.id} tweet={tweet} />
+          <TweetItem
+            key={tweet.id}
+            tweet={tweet}
+            screen_name={tweet.user.screen_name}
+            profile_image_url_https={tweet.user.profile_image_url_https}
+            name={tweet.user.name}
+          />
         ))}
       </div>
     );
@@ -19,7 +25,6 @@ const Tweets = ({ tweets, loading }) => {
 const tweetStyle = {
   display: 'grid',
   gridTemplateColumns: '1fr',
-  gridGap: '1rem',
 };
 
 export default Tweets;
