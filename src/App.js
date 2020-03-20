@@ -13,7 +13,7 @@ class App extends Component {
     loading: false,
     isSearch: false,
     loadMore: false,
-    visible: 5,
+    visible: 10,
     showLoadButton: true,
   };
 
@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   showLoadMoreButton = () => {
-    this.setState({ visible: this.state.visible + 5 });
+    this.setState({ visible: this.state.visible + 10 });
   };
 
   //Search tweets
@@ -62,19 +62,18 @@ class App extends Component {
             }
             visible={this.state.visible}
           />
+          {showLoadButton ? (
+            <button
+              onClick={this.showLoadMoreButton}
+              type='button'
+              className='load-more'
+            >
+              Load more
+            </button>
+          ) : (
+            ''
+          )}
         </div>
-
-        {showLoadButton ? (
-          <button
-            onClick={this.showLoadMoreButton}
-            type='button'
-            className='load-more'
-          >
-            Load more
-          </button>
-        ) : (
-          ''
-        )}
       </div>
     );
   }

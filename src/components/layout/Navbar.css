@@ -60,3 +60,13 @@ span {
 .retweet-info {
   display: block;
 }
+
+.load-more {
+  display: block;
+  margin: 1rem auto;
+  background-color: #00a2ed;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  color: #fff;
+}
