@@ -13,19 +13,27 @@ class App extends Component {
     loading: false,
     isSearch: false,
     loadMore: false,
+    visible: 5,
+    showLoadButton: true,
   };
+
   async componentDidMount() {
     this.setState({ loading: true });
 
     const tweets = JSON.parse(localStorage.getItem('tweets'));
-    if (tweets == undefined) {
+    if (tweets === undefined) {
+      const tweets = [];
       const res = await axios.get(
         'https://res.cloudinary.com/dpcb7n9lx/raw/upload/v1584549606/codebeautify_jk8jnl.json',
       );
-      const tweets = localStorage.setItem('tweets', JSON.stringify(res));
+      tweets.conact(localStorage.setItem('tweets', JSON.stringify(res)));
     }
     this.setState({ tweets: tweets.data, loading: false });
   }
+
+  showLoadMoreButton = () => {
+    this.setState({ visible: this.state.visible + 5 });
+  };
 
   //Search tweets
   searchTweets = (searchQuery, searchedTweets) => {
@@ -34,9 +42,14 @@ class App extends Component {
       searchTweets: searchedTweets,
       isSearch: true,
     });
+    this.showLoadMoreButton();
   };
 
   render() {
+    const showLoadButton = this.state.isSearch
+      ? this.state.visible < this.state.searchTweets.length
+      : this.state.visible < this.state.tweets.length;
+
     return (
       <div className='App'>
         <Navbar />
@@ -47,8 +60,21 @@ class App extends Component {
             tweets={
               this.state.isSearch ? this.state.searchTweets : this.state.tweets
             }
+            visible={this.state.visible}
           />
         </div>
+
+        {showLoadButton ? (
+          <button
+            onClick={this.showLoadMoreButton}
+            type='button'
+            className='load-more'
+          >
+            Load more
+          </button>
+        ) : (
+          ''
+        )}
       </div>
     );
   }

@@ -11,7 +11,7 @@ const TweetItem = ({
   return (
     <div className='card'>
       <div className='retweet'>
-        {retweeted_status == undefined ? (
+        {retweeted_status === undefined ? (
           ''
         ) : (
           <div>
@@ -23,7 +23,7 @@ const TweetItem = ({
               <div className='avatar'>
                 <img
                   src={retweeted_status.user.profile_image_url_https}
-                  alt='avatar image'
+                  alt=' avatar images'
                   className='round-img'
                   style={{ width: '50px' }}
                   onError={e => {
@@ -63,14 +63,15 @@ const TweetItem = ({
           <p>{text}</p>
           <img
             src={
-              quoted_status != undefined
-                ? quoted_status.entities.media != undefined
+              quoted_status !== undefined
+                ? quoted_status.entities.media !== undefined
                   ? quoted_status.entities.media.map(
                       item => item.media_url_https,
                     )
                   : ''
                 : ''
             }
+            alt='tweet-image'
             style={{ width: '500px', borderRadius: '15px' }}
           />
         </div>
