@@ -12,13 +12,19 @@ class App extends Component {
     searchTweets: [],
     loading: false,
     isSearch: false,
+    loadMore: false,
   };
   async componentDidMount() {
     this.setState({ loading: true });
-    const res = await axios.get(
-      'https://res.cloudinary.com/dpcb7n9lx/raw/upload/v1584549606/codebeautify_jk8jnl.json',
-    );
-    this.setState({ tweets: res.data, loading: false });
+
+    const tweets = JSON.parse(localStorage.getItem('tweets'));
+    if (tweets == undefined) {
+      const res = await axios.get(
+        'https://res.cloudinary.com/dpcb7n9lx/raw/upload/v1584549606/codebeautify_jk8jnl.json',
+      );
+      const tweets = localStorage.setItem('tweets', JSON.stringify(res));
+    }
+    this.setState({ tweets: tweets.data, loading: false });
   }
 
   //Search tweets

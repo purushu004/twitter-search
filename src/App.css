@@ -112,7 +112,6 @@ img {
 
 /* Cards */
 .card {
-  display: flex;
   padding: 1rem;
   border-top: #e5e5e5 1px solid;
 }

@@ -22,6 +22,7 @@ input[type='text'] {
   padding-left: 15px;
   font-size: 1.2em;
   letter-spacing: 0.5px;
+  outline: none;
 }
 
 .form {
@@ -39,11 +40,23 @@ input[type='text'] {
   padding-right: 10px;
 }
 
-.tweet-info h4 {
+h4 {
   display: inline-block;
   padding-right: 5px;
 }
 
-.tweet-info span {
+span {
   font-size: 12px;
+}
+
+.tweets-card {
+  display: flex;
+}
+
+.retweet-card {
+  display: flex;
+}
+
+.retweet-info {
+  display: block;
 }
